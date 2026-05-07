@@ -1,0 +1,1 @@
+#VALIDAR PERGUNTA, CÓDIGO SQL, RESULTADO e Resultado formatado
