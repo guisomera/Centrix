@@ -6,7 +6,7 @@ import os
 load_dotenv()
 api_key = os.getenv("API_KEY_ANTHROPIC")
 
-def create_sql(user_request):
+def create_sql(user_request, general_context):
     client = Anthropic(api_key=api_key)
     schema_bd = read_schema()
     prompt = read_prompt_sql()
@@ -17,7 +17,7 @@ def create_sql(user_request):
         system=f"Schema banco de dados: {schema_bd}. Prompt: {prompt}",
         messages=[{
             "role": "user",
-            "content": user_request
+            "content": f"Pergunta do usuário: {user_request}. Contexto da conversa{general_context}"
         }]
     )   
 
